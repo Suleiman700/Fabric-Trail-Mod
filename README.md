@@ -18,9 +18,7 @@ A small client-side mod that draws a **trail/line behind your player** to help v
 
 ![Screenshot 7](media/screenshot%207.png)
 
-For more screenshots and videos, see the [media folder](media/).
-
-
+https://github.com/user-attachments/assets/4f9028d9-073e-4d43-a27c-d2b24c63d72f
 
 ## Compatibility
 
