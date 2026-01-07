@@ -18,23 +18,6 @@ A small client-side mod that draws a **trail/line behind your player** to help v
 
 ![Screenshot 7](media/screenshot%207.png)
 
-<video src="media/mod%20preview%201.mp4" controls muted loop></video>
-
-<video src="media/mod%20preview%202.mp4" controls muted loop></video>
-
-<video src="media/mod%20preview%203.mp4" controls muted loop></video>
-
-<video src="media/mod%20preview%204.mp4" controls muted loop></video>
-
-<video src="media/mod%20preview%20-%20static%20mode.mp4" controls muted loop></video>
-
-<video src="media/mod%20preview%20-%20gradient%20mode.mp4" controls muted loop></video>
-
-<video src="media/mod%20preview%20-%20motion%20mode.mp4" controls muted loop></video>
-
-<video width="320" height="240" controls>
-  <source src="media/mod%20preview%201.mp4" type="video/mp4">
-</video>
 
 
 ## Compatibility
