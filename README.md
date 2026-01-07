@@ -32,6 +32,10 @@ A small client-side mod that draws a **trail/line behind your player** to help v
 
 <video src="media/mod%20preview%20-%20motion%20mode.mp4" controls muted loop></video>
 
+<video width="320" height="240" controls>
+  <source src="media/mod%20preview%201.mp4" type="video/mp4">
+</video>
+
 
 ## Compatibility
 
