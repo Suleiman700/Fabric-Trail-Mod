@@ -1,5 +1,7 @@
 # Trail Mod (Fabric)
 
+A small client-side mod that draws a **trail/line behind your player** to help visualize where you have been.
+
 ## Media
 
 ![Screenshot 1](media/screenshot%201.png)
@@ -30,7 +32,6 @@
 
 <video src="media/mod%20preview%20-%20motion%20mode.mp4" controls muted loop></video>
 
-A small client-side mod that draws a **trail/line behind your player** to help visualize where you have been.
 
 ## Compatibility
 
@@ -74,74 +75,30 @@ You'll need **Mod Menu** installed to edit the mod settings.
 
 ### Config options
 
-- **Enable**
-    - Turns the mod on/off.
-
-- **Trail TTL**
-  - How long trail points remain before disappearing.
-  - Range: `1` to `10800` (in seconds).
-  - Note: higher values can reduce FPS (more trail points to render).
-
-- **Hotkey**
-  - Key code for the trail hotkey (default: `V`).
-  - Single press pauses/resumes drawing; double press clears.
-
-- **Mode**
-  - `STATIC`: one constant color
-  - `GRADIENT`: color blends from start to end
-  - `MOTION`: changes color based on vertical movement
-    - going up = green, going down = red
-
-- **Color**
-  - The main trail color.
-
-- **Gradient end color**
-  - The end color of the gradient.
-  - Used only when `mode` is `GRADIENT`.
-
-- **Line width**
-  - Trail thickness.
-  - Range: `1` to `10`.
-
-- **Arrows enabled**
-  - Show/hide arrowheads along the trail (shows direction).
-
-- **Arrow spacing**
-  - Distance between arrows in blocks.
-  - Range: `1` to `40`.
-
-- **Arrow size**
-  - Arrowhead size.
-  - Range: `1` to `10`.
-
-- **Pause on sneak**
-  - When sneaking, the mod stops adding new trail points.
-
-- **Line Opacity**
-  - How transparent the trail is.
-  - Range: `0` (invisible) to `100` (fully visible).
-
-- **Erase on Retrace**
-  - When you return close to an older part of your trail, erase everything newer than that point.
-  - Radius: `0.75` blocks.
+| Setting | Config key | Default | Range / Values | Notes |
+| --- | --- | --- | --- | --- |
+| Enable | `enabled` | `true` | `true` / `false` | Turns the mod on/off. |
+| Trail TTL (seconds) | `ttlSeconds` | `10` | `1` to `10800` | Higher values can reduce FPS (more trail points to render). |
+| Hotkey | `keyCode` | `V` | Any key | Single press pauses/resumes drawing; double press clears the trail. |
+| Mode | `mode` | `STATIC` | `STATIC`, `GRADIENT`, `MOTION` | Motion: red when falling, green when rising. |
+| Color | `color` | `WHITE` | One of the built-in colors | The main trail color. |
+| Gradient end color | `gradientEndColor` | `WHITE` | One of the built-in colors | Used only when `mode` is `GRADIENT`. |
+| Line width | `lineWidth` | `2` | `1` to `10` | Trail thickness. |
+| Line arrows | `arrowsEnabled` | `true` | `true` / `false` | Show arrowheads on the trail to indicate direction. |
+| Arrow spacing (blocks) | `arrowSpacingBlocks` | `2` | `1` to `40` | Distance between arrows. |
+| Arrow size | `arrowSize` | `1` | `1` to `10` | Arrowhead size. |
+| Pause on sneak | `pauseOnSneak` | `true` | `true` / `false` | When sneaking, stop adding new trail points. |
+| Line opacity | `lineOpacity` | `100` | `0` to `100` | `0` = invisible, `100` = fully visible. |
+| Erase on retrace | `eraseOnRetrace` | `false` | `true` / `false` | When you return close to an older part of your trail, erase everything newer than that point (radius: `0.75` blocks). |
 
 ### Other Players
 
-- **Enable**
-  - Turns drawing trails for other players on/off (disabled by default).
-  - Note: can be performance-heavy if many players are nearby.
-
-- **Range**
-  - Only track other players within this distance (blocks).
-  - Range: `0` to `4096`.
-
-- **Hotkey**
-  - Key code for the other-player trails hotkey (default: `B`).
-  - Single press toggles; double press clears.
-
-- **Point Cap**
-  - Safety cap for total other-player trail points to prevent lag.
-  - Range: `1000` to `200000`.
+| Setting | Config key | Default | Range / Values | Notes |
+| --- | --- | --- | --- | --- |
+| Enable other-player trails | `otherPlayersEnabled` | `false` | `true` / `false` | Can be performance-heavy if many players are nearby. |
+| Range (blocks) | `otherPlayersRangeBlocks` | `524` | `0` to `4096` | Only track other players within this distance. |
+| Hotkey | `otherPlayersKeyCode` | `B` | Any key | Single press toggles; double press clears other-player trails. |
+| Point cap | `otherPlayersPointCap` | `30000` | `1000` to `200000` | Safety cap for total other-player trail points to prevent lag. |
 
 ## Building from Source
 
