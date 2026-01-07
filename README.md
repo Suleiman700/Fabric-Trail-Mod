@@ -18,6 +18,8 @@ A small client-side mod that draws a **trail/line behind your player** to help v
 
 ![Screenshot 7](media/screenshot%207.png)
 
+For more screenshots and videos, see the [media folder](media/).
+
 
 
 ## Compatibility
