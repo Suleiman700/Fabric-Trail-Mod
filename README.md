@@ -1,6 +1,8 @@
 # Trail Mod (Fabric)
 
-A small client-side mod that draws a **trail/line behind your player** to help visualize where you have been.
+A client-side Minecraft mod that renders customizable trails behind players, allowing you to see colorful lines that follow your movement in the game world. Works in both single-player and multiplayer.
+
+These trails can be adjusted in color, width, opacity, and more, with options for static, gradient, or motion-based coloring. You can also enable trails for other players in multiplayer settings.
 
 ## Media
 
@@ -29,6 +31,9 @@ https://github.com/user-attachments/assets/4f9028d9-073e-4d43-a27c-d2b24c63d72f
 ## Compatibility
 
 - **Mod Loader**: Fabric
+- **Single Player**: Yes
+- **Multiplayer**: Yes
+- **Realms**: Yes
 
 ## Download
 
