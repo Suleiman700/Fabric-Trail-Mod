@@ -20,6 +20,11 @@ A small client-side mod that draws a **trail/line behind your player** to help v
 
 https://github.com/user-attachments/assets/4f9028d9-073e-4d43-a27c-d2b24c63d72f
 
+<video width="320" height="240" controls>
+  <source src="https://youtu.be/3Sr16XOKQZM" type="video/mp4">
+</video>
+
+
 ## Compatibility
 
 - **Mod Loader**: Fabric
