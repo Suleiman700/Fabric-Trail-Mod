@@ -29,7 +29,10 @@ https://github.com/user-attachments/assets/4f9028d9-073e-4d43-a27c-d2b24c63d72f
 ## Compatibility
 
 - **Mod Loader**: Fabric
-- **Minecraft**: this mod builds on 1.21.11
+
+## Download
+
+You can download the mod from the [Releases](https://github.com/Suleiman700/Fabric-Trail-Mod/releases) page.
 
 ## Installation
 
