@@ -31,7 +31,7 @@ For more screenshots and videos, see the [media folder](media/).
 
 1. Install **Fabric Loader** to match the Minecraft version.
 2. Install **Fabric API**.
-3. (Optional) Install **Mod Menu** to open the config UI easily.
+3. Install **Mod Menu** to open the config UI easily.
 4. Download the mod jar and place it into:
 
    `/.minecraft/mods/`
