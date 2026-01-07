@@ -1,5 +1,35 @@
 # Trail Mod (Fabric)
 
+## Media
+
+![Screenshot 1](media/screenshot%201.png)
+
+![Screenshot 2](media/screenshot%202.png)
+
+![Screenshot 3](media/screenshot%203.png)
+
+![Screenshot 4](media/screenshot%204.png)
+
+![Screenshot 5](media/screenshot%205.png)
+
+![Screenshot 6](media/screenshot%206.png)
+
+![Screenshot 7](media/screenshot%207.png)
+
+<video src="media/mod%20preview%201.mp4" controls muted loop></video>
+
+<video src="media/mod%20preview%202.mp4" controls muted loop></video>
+
+<video src="media/mod%20preview%203.mp4" controls muted loop></video>
+
+<video src="media/mod%20preview%204.mp4" controls muted loop></video>
+
+<video src="media/mod%20preview%20-%20static%20mode.mp4" controls muted loop></video>
+
+<video src="media/mod%20preview%20-%20gradient%20mode.mp4" controls muted loop></video>
+
+<video src="media/mod%20preview%20-%20motion%20mode.mp4" controls muted loop></video>
+
 A small client-side mod that draws a **trail/line behind your player** to help visualize where you have been.
 
 ## Compatibility
