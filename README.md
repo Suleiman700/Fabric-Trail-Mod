@@ -1,116 +1,105 @@
-# Trail Mod (Fabric)
+# ✨ Trail Mod (Fabric)
 
-A client-side Minecraft mod that renders customizable trails behind players, allowing you to see colorful lines that follow your movement in the game world. Works in both single-player and multiplayer.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Minecraft: 1.21+](https://img.shields.io/badge/Minecraft-1.21+-blue.svg)](https://www.minecraft.net/)
+[![Mod Loader: Fabric](https://img.shields.io/badge/Mod_Loader-Fabric-lightgrey.svg)](https://fabricmc.net/)
 
-These trails can be adjusted in color, width, opacity, and more, with options for static, gradient, or motion-based coloring. You can also enable trails for other players in multiplayer settings.
+A high-performance, client-side Minecraft mod that renders customizable trails behind players. Perfect for parkour, navigation, or just adding a splash of color to your world. Works seamlessly in single-player, multiplayer, and Realms.
 
-## Media
+[**Download Releases**](https://github.com/Suleiman700/Fabric-Trail-Mod/releases) | [**Report a Bug**](https://github.com/Suleiman700/Fabric-Trail-Mod/issues)
 
-![Screenshot 1](media/screenshot%201.png)
+---
 
-![Screenshot 2](media/screenshot%202.png)
+## 📸 Media Gallery
 
-![Screenshot 3](media/screenshot%203.png)
+<p align="center">
+  <img src="media/screenshot 1.png" width="48%" />
+  <img src="media/screenshot 2.png" width="48%" />
+  <img src="media/screenshot 3.png" width="48%" />
+  <img src="media/screenshot 4.png" width="48%" />
+  <img src="media/screenshot 5.png" width="48%" />
+  <img src="media/screenshot 6.png" width="48%" />
+  <img src="media/screenshot 7.png" width="97%" />
+</p>
 
-![Screenshot 4](media/screenshot%204.png)
-
-![Screenshot 5](media/screenshot%205.png)
-
-![Screenshot 6](media/screenshot%206.png)
-
-![Screenshot 7](media/screenshot%207.png)
-
+### 🎥 Video Demonstration
 https://github.com/user-attachments/assets/4f9028d9-073e-4d43-a27c-d2b24c63d72f
 
-### Demo Video (click to watch)
-
+> **Note:** Click the thumbnail below to watch the full YouTube guide.
 [![Trail Mod Demo Video](https://img.youtube.com/vi/3Sr16XOKQZM/0.jpg)](https://www.youtube.com/watch?v=3Sr16XOKQZM)
 
+---
 
+## 🚀 Features
 
-## Compatibility
+* **Customizable Aesthetics:** Adjust color, width, and opacity to fit your style.
+* **Dynamic Modes:**
+    * `STATIC`: One solid color.
+    * `GRADIENT`: Smooth transition between two colors.
+    * `MOTION`: Changes color based on movement (Red while falling, Green while rising).
+* **Arrow Indicators:** Optional arrowheads to show the direction of movement.
+* **Multiplayer Ready:** Enable trails for other players within a configurable range.
+* **Performance Optimized:** Includes a "Point Cap" and distance limits to ensure your FPS stays high.
+* **Smart Tracing:** *Erase on Retrace* feature automatically clears paths when you double back.
 
-- **Mod Loader**: Fabric
-- **Single Player**: Yes
-- **Multiplayer**: Yes
-- **Realms**: Yes
+---
 
-## Download
+## 🛠️ Installation
 
-You can download the mod from the [Releases](https://github.com/Suleiman700/Fabric-Trail-Mod/releases) page.
+1.  **Requirement:** Install the [Fabric Loader](https://fabricmc.net/use/installer/).
+2.  **Dependencies:** * [Fabric API](https://www.curseforge.com/minecraft/mc-mods/fabric-api)
+    * [Mod Menu](https://www.curseforge.com/minecraft/mc-mods/modmenu) (Required for the config UI).
+3.  **Setup:** Drop the downloaded `.jar` file into your `/.minecraft/mods/` directory.
 
-## Installation
+---
 
-1. Install **Fabric Loader** to match the Minecraft version.
-2. Install **Fabric API**.
-3. Install **Mod Menu** to open the config UI easily.
-4. Download the mod jar and place it into:
+## ⌨️ Controls (Default)
 
-   `/.minecraft/mods/`
+| Key | Action | Double Press Action |
+| :--- | :--- | :--- |
+| **V** | Pause/Resume your trail | Clear your trail |
+| **B** | Toggle other players' trails | Clear all other player trails |
 
-5. Start the game.
+---
 
-## How to use (in game)
+## ⚙️ Configuration
 
-- The trail is rendered in-world behind you while you move.
-- If enabled, trails are also drawn for other players within the configured range.
-- You can adjust colors, mode, arrow indicators, width, and TTL in the config screen.
+Access the settings via **Mod Menu** in-game.
 
-### Hotkey behavior
-
-Default hotkey is **V**.
-
-- **Single press**: pause/resume drawing (stops/starts adding new trail points)
-- **Double press** (quickly): clear the trail
-
-There is also a configurable hotkey for other players' trails (default: **B**).
-
-- **Single press**: toggle other-player trails
-- **Double press**: clear other-player trails
-
-## Configuration
-
-### Config screen
-
-You'll need **Mod Menu** installed to edit the mod settings.
-
-### Config options
-
-| Setting | Config key | Default | Range / Values | Notes |
-| --- | --- | --- | --- | --- |
-| Enable | `enabled` | `true` | `true` / `false` | Turns the mod on/off. |
-| Trail TTL (seconds) | `ttlSeconds` | `10` | `1` to `10800` | Higher values can reduce FPS (more trail points to render). |
-| Hotkey | `keyCode` | `V` | Any key | Single press pauses/resumes drawing; double press clears the trail. |
-| Mode | `mode` | `STATIC` | `STATIC`, `GRADIENT`, `MOTION` | Motion: red when falling, green when rising. |
-| Color | `color` | `WHITE` | One of the built-in colors | The main trail color. |
-| Gradient end color | `gradientEndColor` | `WHITE` | One of the built-in colors | Used only when `mode` is `GRADIENT`. |
-| Line width | `lineWidth` | `2` | `1` to `10` | Trail thickness. |
-| Line arrows | `arrowsEnabled` | `true` | `true` / `false` | Show arrowheads on the trail to indicate direction. |
-| Arrow spacing (blocks) | `arrowSpacingBlocks` | `2` | `1` to `40` | Distance between arrows. |
-| Arrow size | `arrowSize` | `1` | `1` to `10` | Arrowhead size. |
-| Pause on sneak | `pauseOnSneak` | `true` | `true` / `false` | When sneaking, stop adding new trail points. |
-| Line opacity | `lineOpacity` | `100` | `0` to `100` | `0` = invisible, `100` = fully visible. |
-| Erase on retrace | `eraseOnRetrace` | `false` | `true` / `false` | When you return close to an older part of your trail, erase everything newer than that point (radius: `0.75` blocks). |
+### Main Settings
+| Setting | Default | Range / Values |
+| :--- | :--- | :--- |
+| **Trail TTL** | `10s` | 1 to 10800s |
+| **Line Width** | `2` | 1 to 10 |
+| **Mode** | `STATIC` | STATIC, GRADIENT, MOTION |
+| **Opacity** | `100` | 0 to 100 |
+| **Pause on Sneak** | `true` | true / false |
+| **Erase on Retrace** | `false` | true / false |
 
 ### Other Players
+| Setting | Default | Description |
+| :--- | :--- | :--- |
+| **Enable** | `false` | Show trails for nearby players. |
+| **Range** | `524` | Block radius for tracking. |
+| **Point Cap** | `30,000` | Prevents lag in crowded areas. |
 
-| Setting | Config key | Default | Range / Values | Notes |
-| --- | --- | --- | --- | --- |
-| Enable other-player trails | `otherPlayersEnabled` | `false` | `true` / `false` | Can be performance-heavy if many players are nearby. |
-| Range (blocks) | `otherPlayersRangeBlocks` | `524` | `0` to `4096` | Only track other players within this distance. |
-| Hotkey | `otherPlayersKeyCode` | `B` | Any key | Single press toggles; double press clears other-player trails. |
-| Point cap | `otherPlayersPointCap` | `30000` | `1000` to `200000` | Safety cap for total other-player trail points to prevent lag. |
+---
 
-## Building from Source
+## 👨‍💻 Building from Source
 
-For developers who want to build the mod from source:
+1. Clone the repo: `git clone https://github.com/Suleiman700/Fabric-Trail-Mod.git`
+2. Ensure you have **JDK 21** installed.
+3. Build the project:
+    * **Windows:** `gradlew.bat build`
+    * **Linux/Mac:** `./gradlew build`
+4. Find the jar in `build/libs/`.
 
-1. Clone this repository.
-2. Ensure you have JDK 21 or newer installed.
-3. Run `./gradlew build` (Linux/Mac) or `gradlew.bat build` (Windows).
-4. The mod jar will be in `build/libs/`.
+---
 
-## Links
+## 🔗 Links
 
-- Homepage: http://brightpixel.work/
-- GitHub: https://github.com/Suleiman700
+* **Homepage:** [brightpixel.work](http://brightpixel.work/)
+* **Author:** [Suleiman700](https://github.com/Suleiman700)
+
+---
+<p align="center">Made with ❤️ for the Minecraft Fabric Community</p>
