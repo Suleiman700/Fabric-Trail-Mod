@@ -29,6 +29,7 @@ final class TrailController {
 	private boolean modid$wasTogglePressed;
 	private boolean modid$paused;
 	private long modid$lastHotkeyPressMs;
+	private boolean modid$pendingSinglePress;
 
 	private long modid$trailPointTtlMs = 10_000L;
 	private boolean modid$enabled = true;
@@ -51,6 +52,7 @@ final class TrailController {
 	private int modid$otherPlayersPointCap;
 	private boolean modid$wasOtherPlayersTogglePressed;
 	private long modid$lastOtherPlayersHotkeyPressMs;
+	private boolean modid$pendingOtherPlayersSinglePress;
 	private long modid$lastOtherPlayersWarnMs;
 	private final Map<UUID, modid$OtherPlayerTrail> modid$otherPlayerTrails = new HashMap<>();
 
@@ -113,52 +115,64 @@ final class TrailController {
 		if (client.player == null) {
 			this.modid$wasTogglePressed = false;
 			this.modid$lastHotkeyPressMs = 0L;
+			this.modid$pendingSinglePress = false;
 			this.modid$trailPoints.clear();
 			this.modid$lastTrailPos = null;
 			this.modid$pendingCutTargetSize = -1;
 			this.modid$pendingCutInsertBreak = false;
 			this.modid$wasOtherPlayersTogglePressed = false;
 			this.modid$lastOtherPlayersHotkeyPressMs = 0L;
+			this.modid$pendingOtherPlayersSinglePress = false;
 			this.modid$otherPlayerTrails.clear();
 			return;
 		}
 
 		com.mojang.blaze3d.platform.Window window = client.getWindow();
+		long nowMs = System.currentTimeMillis();
 		boolean togglePressed = InputConstants.isKeyDown(window, config.keyCode);
 		if (togglePressed && !this.modid$wasTogglePressed) {
-			long nowMs = System.currentTimeMillis();
 			if (this.modid$lastHotkeyPressMs > 0L && nowMs - this.modid$lastHotkeyPressMs <= modid$doublePressThresholdMs) {
+				this.modid$pendingSinglePress = false;
 				this.clearTrail();
 				this.modid$paused = false;
 				this.modid$lastHotkeyPressMs = 0L;
 				client.gui.getChat().addMessage(Component.literal("Trail cleared"));
 			} else {
-				this.modid$paused = !this.modid$paused;
 				this.modid$lastHotkeyPressMs = nowMs;
-				client.gui.getChat().addMessage(Component.literal(this.modid$paused ? "Trail paused" : "Trail resumed"));
+				this.modid$pendingSinglePress = true;
 			}
+		}
+		if (this.modid$pendingSinglePress && this.modid$lastHotkeyPressMs > 0L && nowMs - this.modid$lastHotkeyPressMs > modid$doublePressThresholdMs) {
+			this.modid$pendingSinglePress = false;
+			this.modid$paused = !this.modid$paused;
+			this.modid$lastHotkeyPressMs = 0L;
+			client.gui.getChat().addMessage(Component.literal(this.modid$paused ? "Trail paused" : "Trail resumed"));
 		}
 		this.modid$wasTogglePressed = togglePressed;
 
 		boolean otherPressed = InputConstants.isKeyDown(window, this.modid$otherPlayersKeyCode);
 		if (otherPressed && !this.modid$wasOtherPlayersTogglePressed) {
-			long nowMs = System.currentTimeMillis();
 			if (this.modid$lastOtherPlayersHotkeyPressMs > 0L && nowMs - this.modid$lastOtherPlayersHotkeyPressMs <= modid$doublePressThresholdMs) {
+				this.modid$pendingOtherPlayersSinglePress = false;
 				this.modid$otherPlayerTrails.clear();
 				this.modid$lastOtherPlayersHotkeyPressMs = 0L;
 				client.gui.getChat().addMessage(Component.literal("Other-player trails cleared"));
 			} else {
-				this.modid$otherPlayersEnabled = !this.modid$otherPlayersEnabled;
 				this.modid$lastOtherPlayersHotkeyPressMs = nowMs;
-				client.gui.getChat().addMessage(Component.literal(this.modid$otherPlayersEnabled ? "Other-player trails enabled" : "Other-player trails disabled"));
+				this.modid$pendingOtherPlayersSinglePress = true;
 			}
+		}
+		if (this.modid$pendingOtherPlayersSinglePress && this.modid$lastOtherPlayersHotkeyPressMs > 0L && nowMs - this.modid$lastOtherPlayersHotkeyPressMs > modid$doublePressThresholdMs) {
+			this.modid$pendingOtherPlayersSinglePress = false;
+			this.modid$otherPlayersEnabled = !this.modid$otherPlayersEnabled;
+			this.modid$lastOtherPlayersHotkeyPressMs = 0L;
+			client.gui.getChat().addMessage(Component.literal(this.modid$otherPlayersEnabled ? "Other-player trails enabled" : "Other-player trails disabled"));
 		}
 		this.modid$wasOtherPlayersTogglePressed = otherPressed;
 		if (!this.modid$enabled) {
 			return;
 		}
 
-		long nowMs = System.currentTimeMillis();
 		this.pruneTrail(nowMs);
 		if (this.modid$paused) {
 			return;
